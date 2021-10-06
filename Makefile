@@ -1,5 +1,14 @@
-SRC = batch_gcd.py
+DIR = batch_gcd
+SRC = $(DIR)/
 TEST = test.py
+
+.PHONY: install
+install: $(SRC)
+	@pip install --user --no-deps .
+
+.PHONY: install_dev
+install_dev:
+	@pip install -e .[dev]
 
 tags: $(SRC) $(TEST)
 	@ctags --languages=python --python-kinds=-i $(SRC) $(TEST)
@@ -9,7 +18,7 @@ test:
 	@python -m unittest
 
 coverage: $(SRC) $(TEST)
-	@coverage run --source=. --branch --concurrency=thread test.py
+	@coverage run --source=. --branch --concurrency=thread $(TEST)
 	@coverage report -m
 	@coverage html -d ./coverage
 	@coverage erase
