@@ -1,6 +1,7 @@
 .swp
 venv/
 *.egg-info/
+dist/
 __pycache__/
 .mypy_cache/
 coverage/

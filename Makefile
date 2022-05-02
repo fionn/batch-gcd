@@ -10,6 +10,9 @@ install: $(SRC)
 install_dev:
 	@pip install -e .[dev]
 
+build: $(SRC)
+	@python -m build
+
 tags: $(SRC) $(TEST)
 	@ctags --languages=python --python-kinds=-i $(SRC) $(TEST)
 
