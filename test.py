@@ -11,19 +11,19 @@ class TestFactHack(unittest.TestCase):
     def test_product_tree_small_sequence(self) -> None:
         """Calculate a product tree"""
         seq = [10, 20, 30, 40, 50, 60]
-        tree = products(seq)
+        tree = products(*seq)
         self.assertEqual(tree, [[10, 20, 30, 40, 50, 60], [200, 1200, 3000],
                                 [240000, 3000], [720000000]])
 
-    def test_remainder_tree_small_sequence(self) -> None:
-        """Calculate a remainder tree"""
-        tree = remainders(8675309, [11, 13, 17, 19, 23])
-        self.assertEqual(tree, [5, 6, 5, 4, 8])
+    def test_remainder_small_sequence(self) -> None:
+        """Calculate a remainder sequence"""
+        remainder_seq = remainders(8675309, products(11, 13, 17, 19, 23))
+        self.assertEqual(remainder_seq, [5, 6, 5, 4, 8])
 
     def test_batch_gcd_small_sequence(self) -> None:
         """Perform batch GCD on a small sequence"""
         seq = [1909, 2923, 291, 205, 989, 62, 451, 1943, 1079, 2419]
-        gs = batch_gcd(seq)
+        gs = batch_gcd(*seq)
         self.assertEqual(gs, [1909, 1, 1, 41, 23, 1, 41, 1, 83, 41])
 
 

@@ -15,10 +15,11 @@ This is a library and cannot be invoked directly.
 
 Test with `make test`.
 
-The `batch_gcd` module exposes a `batch_gcd` function which takes a sequence of integers and returns a list of their GCDs at the corresponding index.
+The `batch_gcd` module exposes a `batch_gcd` function which takes integers and returns a list of their GCDs at the corresponding index.
+
 This calculation involves two intermediate steps: creating a product tree and creating a remainder tree.
 These functions are also exposed, as `products` and `remainders`.
-Both take a list of integers, `remainders` creates its own product tree.
+`products` take integers and returns a product tree, `remainders` takes an integer and a product tree.
 
 ## Resources
 
