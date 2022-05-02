@@ -20,8 +20,7 @@ jobs:
         python-version: "3.10"
 
     - name: Install Python dependencies
-      run: |
-        pip install -r requirements_dev.txt
+      run: pip install -r requirements_dev.txt
       env:
         PIP_PROGRESS_BAR: off
 
@@ -58,6 +57,12 @@ jobs:
 
     - name: Build distribution
       run: make build
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: batch-gcd
+        path: dist/
 
     - name: Publish to TestPyPI
       uses: pypa/gh-action-pypi-publish@v1.5.0

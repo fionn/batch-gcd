@@ -7,7 +7,7 @@ from collections.abc import Sequence
 
 name = "batch-gcd" # pylint: disable=invalid-name
 __title__ = name
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 
 def products(*integers: int) -> list[list[int]]:
