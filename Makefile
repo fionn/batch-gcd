@@ -39,4 +39,5 @@ clean:
 	@$(RM) -r coverage
 	@$(RM) -r .mypy_cache
 	@$(RM) -r __pycache__
+	@$(RM) -r dist
 	@$(RM) tags
