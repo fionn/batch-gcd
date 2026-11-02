@@ -56,6 +56,10 @@ jobs:
       name: pypi
       url: https://pypi.org/project/batch-gcd/
 
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
 
     - name: Checkout
@@ -86,11 +90,9 @@ jobs:
       uses: pypa/gh-action-pypi-publish@v1.14.3
       with:
         repository-url: https://test.pypi.org/legacy/
-        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
         print-hash: true
 
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@v1.14.3
       with:
-        password: ${{ secrets.PYPI_API_TOKEN }}
         print-hash: true
