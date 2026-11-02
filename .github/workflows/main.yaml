@@ -38,6 +38,14 @@ jobs:
     - name: Test
       run: python -m unittest -v --locals --buffer
 
+    - name: Install pypa/build
+      run: pip install build
+      env:
+        PIP_PROGRESS_BAR: off
+
+    - name: Build distribution
+      run: make build
+
   publish:
 
     name: Publish
