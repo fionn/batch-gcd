@@ -38,11 +38,6 @@ jobs:
     - name: Test
       run: python -m unittest -v --locals --buffer
 
-    - name: Install pypa/build
-      run: pip install build
-      env:
-        PIP_PROGRESS_BAR: off
-
     - name: Build distribution
       run: make build
 
@@ -72,8 +67,8 @@ jobs:
       with:
         python-version: "3.15"
 
-    - name: Install pypa/build
-      run: pip install build
+    - name: Install Python dependencies
+      run: pip install -r requirements_dev.txt
       env:
         PIP_PROGRESS_BAR: off
 
