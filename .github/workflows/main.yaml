@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/v')
     environment:
-      name: publish
+      name: pypi
       url: https://pypi.org/project/batch-gcd/
 
     steps:
@@ -85,12 +85,12 @@ jobs:
     - name: Publish to TestPyPI
       uses: pypa/gh-action-pypi-publish@v1.14.3
       with:
-        repository_url: https://test.pypi.org/legacy/
+        repository-url: https://test.pypi.org/legacy/
         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
-        print_hash: true
+        print-hash: true
 
     - name: Publish to PyPI
       uses: pypa/gh-action-pypi-publish@v1.14.3
       with:
         password: ${{ secrets.PYPI_API_TOKEN }}
-        print_hash: true
+        print-hash: true
